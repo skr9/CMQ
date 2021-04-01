@@ -1,0 +1,1 @@
+/usr/local/bin/c++   -std=c++17 -fPIC   CMakeFiles/msg_test.dir/msg_test_main.cpp.o CMakeFiles/msg_test.dir/msg_test_autogen/mocs_compilation.cpp.o  -o msg_test  -L/usr/local/qt/lib -Wl,-rpath,/usr/local/qt/lib /usr/local/qt/lib/libQt5Core.so 

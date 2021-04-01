@@ -1,0 +1,4 @@
+/home/CMQ/test/message/build/CMakeFiles/rebuild_cache.dir
+/home/CMQ/test/message/build/CMakeFiles/edit_cache.dir
+/home/CMQ/test/message/build/CMakeFiles/msg_test.dir
+/home/CMQ/test/message/build/CMakeFiles/msg_test_autogen.dir
