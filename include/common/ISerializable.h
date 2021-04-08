@@ -6,8 +6,8 @@
  * @Description: In User Settings Edit
  * @FilePath: \CMQ\common\ISerializable.hpp
  */
-#ifndef ISERIALIZABLE_HPP_
-#define ISERIALIZABLE_HPP_
+#ifndef ISERIALIZABLE_H_
+#define ISERIALIZABLE_H_
 
 #include <vector>
 #include <iostream>
