@@ -78,6 +78,17 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/CMQ/test/message/build/CMakeFiles /home/CMQ/test/message/build/CMakeFiles/progress.marks
@@ -136,6 +147,87 @@ msg_test_autogen/fast:
 	$(MAKE) -f CMakeFiles/msg_test_autogen.dir/build.make CMakeFiles/msg_test_autogen.dir/build
 .PHONY : msg_test_autogen/fast
 
+cmqmessage_test.o: cmqmessage_test.cpp.o
+
+.PHONY : cmqmessage_test.o
+
+# target to build an object file
+cmqmessage_test.cpp.o:
+	$(MAKE) -f CMakeFiles/msg_test.dir/build.make CMakeFiles/msg_test.dir/cmqmessage_test.cpp.o
+.PHONY : cmqmessage_test.cpp.o
+
+cmqmessage_test.i: cmqmessage_test.cpp.i
+
+.PHONY : cmqmessage_test.i
+
+# target to preprocess a source file
+cmqmessage_test.cpp.i:
+	$(MAKE) -f CMakeFiles/msg_test.dir/build.make CMakeFiles/msg_test.dir/cmqmessage_test.cpp.i
+.PHONY : cmqmessage_test.cpp.i
+
+cmqmessage_test.s: cmqmessage_test.cpp.s
+
+.PHONY : cmqmessage_test.s
+
+# target to generate assembly for a file
+cmqmessage_test.cpp.s:
+	$(MAKE) -f CMakeFiles/msg_test.dir/build.make CMakeFiles/msg_test.dir/cmqmessage_test.cpp.s
+.PHONY : cmqmessage_test.cpp.s
+
+home/CMQ/src/message/cmq_encoder.o: home/CMQ/src/message/cmq_encoder.cpp.o
+
+.PHONY : home/CMQ/src/message/cmq_encoder.o
+
+# target to build an object file
+home/CMQ/src/message/cmq_encoder.cpp.o:
+	$(MAKE) -f CMakeFiles/msg_test.dir/build.make CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_encoder.cpp.o
+.PHONY : home/CMQ/src/message/cmq_encoder.cpp.o
+
+home/CMQ/src/message/cmq_encoder.i: home/CMQ/src/message/cmq_encoder.cpp.i
+
+.PHONY : home/CMQ/src/message/cmq_encoder.i
+
+# target to preprocess a source file
+home/CMQ/src/message/cmq_encoder.cpp.i:
+	$(MAKE) -f CMakeFiles/msg_test.dir/build.make CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_encoder.cpp.i
+.PHONY : home/CMQ/src/message/cmq_encoder.cpp.i
+
+home/CMQ/src/message/cmq_encoder.s: home/CMQ/src/message/cmq_encoder.cpp.s
+
+.PHONY : home/CMQ/src/message/cmq_encoder.s
+
+# target to generate assembly for a file
+home/CMQ/src/message/cmq_encoder.cpp.s:
+	$(MAKE) -f CMakeFiles/msg_test.dir/build.make CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_encoder.cpp.s
+.PHONY : home/CMQ/src/message/cmq_encoder.cpp.s
+
+home/CMQ/src/message/cmq_message_imp.o: home/CMQ/src/message/cmq_message_imp.cpp.o
+
+.PHONY : home/CMQ/src/message/cmq_message_imp.o
+
+# target to build an object file
+home/CMQ/src/message/cmq_message_imp.cpp.o:
+	$(MAKE) -f CMakeFiles/msg_test.dir/build.make CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_message_imp.cpp.o
+.PHONY : home/CMQ/src/message/cmq_message_imp.cpp.o
+
+home/CMQ/src/message/cmq_message_imp.i: home/CMQ/src/message/cmq_message_imp.cpp.i
+
+.PHONY : home/CMQ/src/message/cmq_message_imp.i
+
+# target to preprocess a source file
+home/CMQ/src/message/cmq_message_imp.cpp.i:
+	$(MAKE) -f CMakeFiles/msg_test.dir/build.make CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_message_imp.cpp.i
+.PHONY : home/CMQ/src/message/cmq_message_imp.cpp.i
+
+home/CMQ/src/message/cmq_message_imp.s: home/CMQ/src/message/cmq_message_imp.cpp.s
+
+.PHONY : home/CMQ/src/message/cmq_message_imp.s
+
+# target to generate assembly for a file
+home/CMQ/src/message/cmq_message_imp.cpp.s:
+	$(MAKE) -f CMakeFiles/msg_test.dir/build.make CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_message_imp.cpp.s
+.PHONY : home/CMQ/src/message/cmq_message_imp.cpp.s
+
 msg_test_autogen/mocs_compilation.o: msg_test_autogen/mocs_compilation.cpp.o
 
 .PHONY : msg_test_autogen/mocs_compilation.o
@@ -163,33 +255,6 @@ msg_test_autogen/mocs_compilation.cpp.s:
 	$(MAKE) -f CMakeFiles/msg_test.dir/build.make CMakeFiles/msg_test.dir/msg_test_autogen/mocs_compilation.cpp.s
 .PHONY : msg_test_autogen/mocs_compilation.cpp.s
 
-msg_test_main.o: msg_test_main.cpp.o
-
-.PHONY : msg_test_main.o
-
-# target to build an object file
-msg_test_main.cpp.o:
-	$(MAKE) -f CMakeFiles/msg_test.dir/build.make CMakeFiles/msg_test.dir/msg_test_main.cpp.o
-.PHONY : msg_test_main.cpp.o
-
-msg_test_main.i: msg_test_main.cpp.i
-
-.PHONY : msg_test_main.i
-
-# target to preprocess a source file
-msg_test_main.cpp.i:
-	$(MAKE) -f CMakeFiles/msg_test.dir/build.make CMakeFiles/msg_test.dir/msg_test_main.cpp.i
-.PHONY : msg_test_main.cpp.i
-
-msg_test_main.s: msg_test_main.cpp.s
-
-.PHONY : msg_test_main.s
-
-# target to generate assembly for a file
-msg_test_main.cpp.s:
-	$(MAKE) -f CMakeFiles/msg_test.dir/build.make CMakeFiles/msg_test.dir/msg_test_main.cpp.s
-.PHONY : msg_test_main.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -198,14 +263,21 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... test"
 	@echo "... msg_test"
 	@echo "... msg_test_autogen"
+	@echo "... cmqmessage_test.o"
+	@echo "... cmqmessage_test.i"
+	@echo "... cmqmessage_test.s"
+	@echo "... home/CMQ/src/message/cmq_encoder.o"
+	@echo "... home/CMQ/src/message/cmq_encoder.i"
+	@echo "... home/CMQ/src/message/cmq_encoder.s"
+	@echo "... home/CMQ/src/message/cmq_message_imp.o"
+	@echo "... home/CMQ/src/message/cmq_message_imp.i"
+	@echo "... home/CMQ/src/message/cmq_message_imp.s"
 	@echo "... msg_test_autogen/mocs_compilation.o"
 	@echo "... msg_test_autogen/mocs_compilation.i"
 	@echo "... msg_test_autogen/mocs_compilation.s"
-	@echo "... msg_test_main.o"
-	@echo "... msg_test_main.i"
-	@echo "... msg_test_main.s"
 .PHONY : help
 
 

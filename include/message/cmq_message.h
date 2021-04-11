@@ -1,7 +1,7 @@
 /*
  * @Author: ZHUYUEJIANG
  * @Date: 2021-03-29 14:26:48
- * @LastEditTime: 2021-04-07 12:04:03
+ * @LastEditTime: 2021-04-11 07:43:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \CMQ\message\cmq_message.hpp
@@ -20,6 +20,7 @@ namespace CMQ::Message{
 
 class CmqMessage:public Common::ISerializable{
 public:
+    CmqMessage() = delete;
     CmqMessage(const QString& msgid, const QString& topic, short packetIdentifier,  MqttPacketType mpt = MqttPacketType::PUBLISH,  Protocal protocal = Protocal::MQTT): 
     _imp_ptr(new CmqMessageImp(msgid, topic, packetIdentifier, protocal, mpt))
     {
@@ -27,6 +28,10 @@ public:
 
     CmqMessage(const QString& msgid, const QString& topic, short packetIdentifier, const vector<char>& data, MqttPacketType mpt = MqttPacketType::PUBLISH, Protocal protocal = Protocal::MQTT):
     _imp_ptr(new CmqMessageImp(msgid, topic, packetIdentifier, data, protocal, mpt))
+    {
+    }
+
+    CmqMessage(const CmqMessage& msg):_imp_ptr(make_unique<CmqMessageImp>(*msg._imp_ptr))
     {
     }
 
@@ -38,7 +43,7 @@ public:
 
     const CmqMessage& operator = (const CmqMessage& msg)
     {
-        *this = msg;
+        _imp_ptr.reset(new CmqMessageImp(* msg._imp_ptr));
         return *this;
     }
 
@@ -71,7 +76,12 @@ public:
 
     inline void resetData(vector<char>&& newData){ _imp_ptr->_data.swap(newData);}
 
-    inline void appendData(const vector<char>& data)
+    inline void appendData(CmqByte byte)
+    {
+        _imp_ptr->appendData(byte);
+    }
+
+    inline void appendData(const CmqByteArray& data)
     {
         _imp_ptr->appendData(data);
     }

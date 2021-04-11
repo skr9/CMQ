@@ -11,7 +11,7 @@ set(AM_CMAKE_INCLUDE_DIRECTORIES_PROJECT_BEFORE "")
 set(AM_BUILD_DIR "/home/CMQ/test/message/build/msg_test_autogen")
 set(AM_INCLUDE_DIR "/home/CMQ/test/message/build/msg_test_autogen/include")
 # Files
-set(AM_SOURCES "/home/CMQ/test/message/msg_test_main.cpp")
+set(AM_SOURCES "/home/CMQ/src/message/cmq_encoder.cpp;/home/CMQ/src/message/cmq_message_imp.cpp;/home/CMQ/test/message/cmqmessage_test.cpp")
 set(AM_HEADERS "")
 set(AM_SETTINGS_FILE "/home/CMQ/test/message/build/CMakeFiles/msg_test_autogen.dir/AutogenOldSettings.txt")
 # Qt
@@ -21,7 +21,7 @@ set(AM_QT_UIC_EXECUTABLE "")
 # MOC settings
 set(AM_MOC_SKIP "")
 set(AM_MOC_DEFINITIONS "")
-set(AM_MOC_INCLUDES "/home/CMQ/test/message/build;/home/CMQ/test/message;/usr/local/qt/include")
+set(AM_MOC_INCLUDES "/home/CMQ/test/message/build;/home/CMQ/test/message;/usr/local/qt/include;/home/CMQ/test/message/../../include/message;/home/CMQ/test/message/../../include/common;/usr/local/include/gtest")
 set(AM_MOC_OPTIONS "")
 set(AM_MOC_RELAXED_MODE "")
 set(AM_MOC_MACRO_NAMES "Q_OBJECT;Q_GADGET;Q_NAMESPACE;Q_NAMESPACE_EXPORT")

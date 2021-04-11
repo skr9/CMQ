@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 11:54:32
- * @LastEditTime: 2021-04-07 11:58:45
+ * @LastEditTime: 2021-04-11 07:56:05
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /CMQ/include/message/cmq_message_imp.h
@@ -54,7 +54,6 @@ enum class MqttPacketType{
 
 static const QString DEFAULT_TAG("CMQ");
 static const QString DEFAULT_KEY("CMQ_MSG");
-static const int INIT_DATA_SIZE = 32;
 
 class CmqMessageImp{
 public:
@@ -71,10 +70,17 @@ public:
     bool _duplicated; //是否是重复发送的报文
     vector<char> _data;
 
+    CmqMessageImp() = delete;
     CmqMessageImp(const QString& msgid, const QString& topic, short packetIdentifier, Protocal protocal, MqttPacketType mpt);
     CmqMessageImp(const QString& msgid, const QString& topic, short packetIdentifier, const vector<char>& data, Protocal protocal, MqttPacketType mpt);
+    CmqMessageImp(const CmqMessageImp& imp);
 
-    void appendData(const vector<char>& data)
+    void appendData(CmqByte byte)
+    {
+        _data.push_back(byte);
+    }
+
+    void appendData(const CmqByteArray& data)
     {
         _data.insert(_data.end(), data.begin(), data.end());
     }

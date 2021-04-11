@@ -71,7 +71,7 @@ CMAKE_BINARY_DIR = /home/CMQ/test/message/build
 CMakeFiles/msg_test.dir/all: CMakeFiles/msg_test_autogen.dir/all
 	$(MAKE) -f CMakeFiles/msg_test.dir/build.make CMakeFiles/msg_test.dir/depend
 	$(MAKE) -f CMakeFiles/msg_test.dir/build.make CMakeFiles/msg_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/CMQ/test/message/build/CMakeFiles --progress-num=1,2,3 "Built target msg_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/CMQ/test/message/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target msg_test"
 .PHONY : CMakeFiles/msg_test.dir/all
 
 # Include target in all.
@@ -81,7 +81,7 @@ all: CMakeFiles/msg_test.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/msg_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/CMQ/test/message/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/CMQ/test/message/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/msg_test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/CMQ/test/message/build/CMakeFiles 0
 .PHONY : CMakeFiles/msg_test.dir/rule
@@ -108,7 +108,7 @@ clean: CMakeFiles/msg_test.dir/clean
 CMakeFiles/msg_test_autogen.dir/all:
 	$(MAKE) -f CMakeFiles/msg_test_autogen.dir/build.make CMakeFiles/msg_test_autogen.dir/depend
 	$(MAKE) -f CMakeFiles/msg_test_autogen.dir/build.make CMakeFiles/msg_test_autogen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/CMQ/test/message/build/CMakeFiles --progress-num=4 "Built target msg_test_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/CMQ/test/message/build/CMakeFiles --progress-num=6 "Built target msg_test_autogen"
 .PHONY : CMakeFiles/msg_test_autogen.dir/all
 
 # Build rule for subdir invocation for target.

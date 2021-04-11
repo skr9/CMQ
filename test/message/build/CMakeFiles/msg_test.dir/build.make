@@ -57,22 +57,48 @@ include CMakeFiles/msg_test.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/msg_test.dir/flags.make
 
-CMakeFiles/msg_test.dir/msg_test_main.cpp.o: CMakeFiles/msg_test.dir/flags.make
-CMakeFiles/msg_test.dir/msg_test_main.cpp.o: ../msg_test_main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/CMQ/test/message/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/msg_test.dir/msg_test_main.cpp.o"
-	/usr/local/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/msg_test.dir/msg_test_main.cpp.o -c /home/CMQ/test/message/msg_test_main.cpp
+CMakeFiles/msg_test.dir/cmqmessage_test.cpp.o: CMakeFiles/msg_test.dir/flags.make
+CMakeFiles/msg_test.dir/cmqmessage_test.cpp.o: ../cmqmessage_test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/CMQ/test/message/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/msg_test.dir/cmqmessage_test.cpp.o"
+	/usr/local/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/msg_test.dir/cmqmessage_test.cpp.o -c /home/CMQ/test/message/cmqmessage_test.cpp
 
-CMakeFiles/msg_test.dir/msg_test_main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/msg_test.dir/msg_test_main.cpp.i"
-	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/CMQ/test/message/msg_test_main.cpp > CMakeFiles/msg_test.dir/msg_test_main.cpp.i
+CMakeFiles/msg_test.dir/cmqmessage_test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/msg_test.dir/cmqmessage_test.cpp.i"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/CMQ/test/message/cmqmessage_test.cpp > CMakeFiles/msg_test.dir/cmqmessage_test.cpp.i
 
-CMakeFiles/msg_test.dir/msg_test_main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/msg_test.dir/msg_test_main.cpp.s"
-	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/CMQ/test/message/msg_test_main.cpp -o CMakeFiles/msg_test.dir/msg_test_main.cpp.s
+CMakeFiles/msg_test.dir/cmqmessage_test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/msg_test.dir/cmqmessage_test.cpp.s"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/CMQ/test/message/cmqmessage_test.cpp -o CMakeFiles/msg_test.dir/cmqmessage_test.cpp.s
+
+CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_encoder.cpp.o: CMakeFiles/msg_test.dir/flags.make
+CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_encoder.cpp.o: /home/CMQ/src/message/cmq_encoder.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/CMQ/test/message/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_encoder.cpp.o"
+	/usr/local/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_encoder.cpp.o -c /home/CMQ/src/message/cmq_encoder.cpp
+
+CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_encoder.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_encoder.cpp.i"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/CMQ/src/message/cmq_encoder.cpp > CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_encoder.cpp.i
+
+CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_encoder.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_encoder.cpp.s"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/CMQ/src/message/cmq_encoder.cpp -o CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_encoder.cpp.s
+
+CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_message_imp.cpp.o: CMakeFiles/msg_test.dir/flags.make
+CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_message_imp.cpp.o: /home/CMQ/src/message/cmq_message_imp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/CMQ/test/message/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_message_imp.cpp.o"
+	/usr/local/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_message_imp.cpp.o -c /home/CMQ/src/message/cmq_message_imp.cpp
+
+CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_message_imp.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_message_imp.cpp.i"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/CMQ/src/message/cmq_message_imp.cpp > CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_message_imp.cpp.i
+
+CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_message_imp.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_message_imp.cpp.s"
+	/usr/local/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/CMQ/src/message/cmq_message_imp.cpp -o CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_message_imp.cpp.s
 
 CMakeFiles/msg_test.dir/msg_test_autogen/mocs_compilation.cpp.o: CMakeFiles/msg_test.dir/flags.make
 CMakeFiles/msg_test.dir/msg_test_autogen/mocs_compilation.cpp.o: msg_test_autogen/mocs_compilation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/CMQ/test/message/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/msg_test.dir/msg_test_autogen/mocs_compilation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/CMQ/test/message/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/msg_test.dir/msg_test_autogen/mocs_compilation.cpp.o"
 	/usr/local/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/msg_test.dir/msg_test_autogen/mocs_compilation.cpp.o -c /home/CMQ/test/message/build/msg_test_autogen/mocs_compilation.cpp
 
 CMakeFiles/msg_test.dir/msg_test_autogen/mocs_compilation.cpp.i: cmake_force
@@ -85,19 +111,23 @@ CMakeFiles/msg_test.dir/msg_test_autogen/mocs_compilation.cpp.s: cmake_force
 
 # Object files for target msg_test
 msg_test_OBJECTS = \
-"CMakeFiles/msg_test.dir/msg_test_main.cpp.o" \
+"CMakeFiles/msg_test.dir/cmqmessage_test.cpp.o" \
+"CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_encoder.cpp.o" \
+"CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_message_imp.cpp.o" \
 "CMakeFiles/msg_test.dir/msg_test_autogen/mocs_compilation.cpp.o"
 
 # External object files for target msg_test
 msg_test_EXTERNAL_OBJECTS =
 
-msg_test: CMakeFiles/msg_test.dir/msg_test_main.cpp.o
+msg_test: CMakeFiles/msg_test.dir/cmqmessage_test.cpp.o
+msg_test: CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_encoder.cpp.o
+msg_test: CMakeFiles/msg_test.dir/home/CMQ/src/message/cmq_message_imp.cpp.o
 msg_test: CMakeFiles/msg_test.dir/msg_test_autogen/mocs_compilation.cpp.o
 msg_test: CMakeFiles/msg_test.dir/build.make
-msg_test: /usr/local/qt/lib/libQt5Core.so
 msg_test: CMakeFiles/msg_test.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/CMQ/test/message/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable msg_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/CMQ/test/message/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable msg_test"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/msg_test.dir/link.txt --verbose=$(VERBOSE)
+	/usr/bin/cmake -D TEST_TARGET=msg_test -D TEST_EXECUTABLE=/home/CMQ/test/message/build/msg_test -D TEST_EXECUTOR= -D TEST_WORKING_DIR=/home/CMQ/test/message/build -D TEST_EXTRA_ARGS= -D TEST_PROPERTIES= -D TEST_PREFIX= -D TEST_SUFFIX= -D NO_PRETTY_TYPES=FALSE -D NO_PRETTY_VALUES=FALSE -D TEST_LIST=msg_test_TESTS -D CTEST_FILE=/home/CMQ/test/message/build/msg_test[1]_tests.cmake -D TEST_DISCOVERY_TIMEOUT=5 -P /usr/share/cmake-3.13/Modules/GoogleTestAddTests.cmake
 
 # Rule to build all files generated by this target.
 CMakeFiles/msg_test.dir/build: msg_test
