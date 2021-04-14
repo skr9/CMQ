@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 12:06:59
- * @LastEditTime: 2021-04-08 01:23:14
+ * @LastEditTime: 2021-04-12 03:04:55
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /CMQ/include/message/cmq_encoder.h

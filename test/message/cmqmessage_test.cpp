@@ -1,20 +1,16 @@
 /*
  * @Author: your name
  * @Date: 2021-04-10 11:18:48
- * @LastEditTime: 2021-04-11 08:02:02
+ * @LastEditTime: 2021-04-11 10:21:42
  * @LastEditors: Please set LastEditors
  * @Description: 
  * CmqMessage 单元测试文件，主要测试了构造函数，赋值操作以及数据相关操作函数
  * @FilePath: /CMQ/test/message/cmqmessage_test.cpp
  */
 
-#include "gtest/gtest.h"
-#include "../../include/message/cmq_message.h"
-using namespace CMQ::Message;
+#include "cmqmessage_test_global.h"
 #include <iostream>
 #include <string>
-
-#define TEST_SUIT_NAME CmqMessageTest
 
 /**
  * @description: 

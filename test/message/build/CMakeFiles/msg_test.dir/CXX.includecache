@@ -44,24 +44,18 @@ vector
 QtCore/QString
 -
 
-/home/CMQ/src/message/cmq_encoder.cpp
+/home/CMQ/test/message/cmqencoder_test.cpp
+cmqmessage_test_global.h
+/home/CMQ/test/message/cmqmessage_test_global.h
 ../../include/message/cmq_encoder.h
 /home/CMQ/include/message/cmq_encoder.h
 
-/home/CMQ/src/message/cmq_message_imp.cpp
-../../include/message/cmq_message_imp.h
-/home/CMQ/include/message/cmq_message_imp.h
-QtCore/QDateTime
--
-
-/home/CMQ/test/message/cmqmessage_test.cpp
+/home/CMQ/test/message/cmqmessage_test_global.h
 gtest/gtest.h
 /home/CMQ/test/message/gtest/gtest.h
 ../../include/message/cmq_message.h
 /home/CMQ/include/message/cmq_message.h
 iostream
--
-string
 -
 
 /usr/local/qt/include/QtCore/QDateTime

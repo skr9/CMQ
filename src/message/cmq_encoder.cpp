@@ -1,7 +1,7 @@
 /*
  * @Author: zhuyuejiang
  * @Date: 2021-04-07 09:00:04
- * @LastEditTime: 2021-04-07 05:52:22
+ * @LastEditTime: 2021-04-13 12:46:19
  * @LastEditors: Please set LastEditors
  * @Description: 
  * 消息编码器，负责将CmqMessage编码（打包）为特定协议格式的报文，
@@ -66,9 +66,12 @@ CmqByteArray CmqMqttEncoder::msgEncode(const CmqMessage& msg)
 
     //第一步：固定报头-------------------------------------------------------
     //报文类型
-    CmqByte fixHeader = static_cast<short>(msg.packetType()) << 4;
+    CmqByte fixHeader = static_cast<char>(msg.packetType()) << 4;
     if(msg.duplicated()){
         fixHeader |= MQTT_CONTROL_PACKET_FLAG_DUP;
+    }
+    else{
+        fixHeader |= 0x00;
     }
 
     //报文标志

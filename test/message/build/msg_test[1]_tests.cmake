@@ -1,3 +1,5 @@
+add_test( CmqMessageTest.msgEncodeTest /home/CMQ/test/message/build/msg_test [==[--gtest_filter=CmqMessageTest.msgEncodeTest]==] --gtest_also_run_disabled_tests)
+set_tests_properties( CmqMessageTest.msgEncodeTest PROPERTIES WORKING_DIRECTORY /home/CMQ/test/message/build)
 add_test( CmqMessageTest.CtorTest /home/CMQ/test/message/build/msg_test [==[--gtest_filter=CmqMessageTest.CtorTest]==] --gtest_also_run_disabled_tests)
 set_tests_properties( CmqMessageTest.CtorTest PROPERTIES WORKING_DIRECTORY /home/CMQ/test/message/build)
 add_test( CmqMessageTest.CtorWithDataTest /home/CMQ/test/message/build/msg_test [==[--gtest_filter=CmqMessageTest.CtorWithDataTest]==] --gtest_also_run_disabled_tests)
@@ -10,4 +12,4 @@ add_test( CmqMessageTest.assignTest /home/CMQ/test/message/build/msg_test [==[--
 set_tests_properties( CmqMessageTest.assignTest PROPERTIES WORKING_DIRECTORY /home/CMQ/test/message/build)
 add_test( CmqMessageTest.dataOperationTest /home/CMQ/test/message/build/msg_test [==[--gtest_filter=CmqMessageTest.dataOperationTest]==] --gtest_also_run_disabled_tests)
 set_tests_properties( CmqMessageTest.dataOperationTest PROPERTIES WORKING_DIRECTORY /home/CMQ/test/message/build)
-set( msg_test_TESTS CmqMessageTest.CtorTest CmqMessageTest.CtorWithDataTest CmqMessageTest.moveCtorTest CmqMessageTest.copyCtorTest CmqMessageTest.assignTest CmqMessageTest.dataOperationTest)
+set( msg_test_TESTS CmqMessageTest.msgEncodeTest CmqMessageTest.CtorTest CmqMessageTest.CtorWithDataTest CmqMessageTest.moveCtorTest CmqMessageTest.copyCtorTest CmqMessageTest.assignTest CmqMessageTest.dataOperationTest)

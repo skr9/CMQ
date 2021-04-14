@@ -147,6 +147,33 @@ msg_test_autogen/fast:
 	$(MAKE) -f CMakeFiles/msg_test_autogen.dir/build.make CMakeFiles/msg_test_autogen.dir/build
 .PHONY : msg_test_autogen/fast
 
+cmqencoder_test.o: cmqencoder_test.cpp.o
+
+.PHONY : cmqencoder_test.o
+
+# target to build an object file
+cmqencoder_test.cpp.o:
+	$(MAKE) -f CMakeFiles/msg_test.dir/build.make CMakeFiles/msg_test.dir/cmqencoder_test.cpp.o
+.PHONY : cmqencoder_test.cpp.o
+
+cmqencoder_test.i: cmqencoder_test.cpp.i
+
+.PHONY : cmqencoder_test.i
+
+# target to preprocess a source file
+cmqencoder_test.cpp.i:
+	$(MAKE) -f CMakeFiles/msg_test.dir/build.make CMakeFiles/msg_test.dir/cmqencoder_test.cpp.i
+.PHONY : cmqencoder_test.cpp.i
+
+cmqencoder_test.s: cmqencoder_test.cpp.s
+
+.PHONY : cmqencoder_test.s
+
+# target to generate assembly for a file
+cmqencoder_test.cpp.s:
+	$(MAKE) -f CMakeFiles/msg_test.dir/build.make CMakeFiles/msg_test.dir/cmqencoder_test.cpp.s
+.PHONY : cmqencoder_test.cpp.s
+
 cmqmessage_test.o: cmqmessage_test.cpp.o
 
 .PHONY : cmqmessage_test.o
@@ -266,6 +293,9 @@ help:
 	@echo "... test"
 	@echo "... msg_test"
 	@echo "... msg_test_autogen"
+	@echo "... cmqencoder_test.o"
+	@echo "... cmqencoder_test.i"
+	@echo "... cmqencoder_test.s"
 	@echo "... cmqmessage_test.o"
 	@echo "... cmqmessage_test.i"
 	@echo "... cmqmessage_test.s"

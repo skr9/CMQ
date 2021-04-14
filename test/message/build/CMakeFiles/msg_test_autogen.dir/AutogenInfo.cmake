@@ -11,7 +11,7 @@ set(AM_CMAKE_INCLUDE_DIRECTORIES_PROJECT_BEFORE "")
 set(AM_BUILD_DIR "/home/CMQ/test/message/build/msg_test_autogen")
 set(AM_INCLUDE_DIR "/home/CMQ/test/message/build/msg_test_autogen/include")
 # Files
-set(AM_SOURCES "/home/CMQ/src/message/cmq_encoder.cpp;/home/CMQ/src/message/cmq_message_imp.cpp;/home/CMQ/test/message/cmqmessage_test.cpp")
+set(AM_SOURCES "/home/CMQ/src/message/cmq_encoder.cpp;/home/CMQ/src/message/cmq_message_imp.cpp;/home/CMQ/test/message/cmqencoder_test.cpp;/home/CMQ/test/message/cmqmessage_test.cpp")
 set(AM_HEADERS "")
 set(AM_SETTINGS_FILE "/home/CMQ/test/message/build/CMakeFiles/msg_test_autogen.dir/AutogenOldSettings.txt")
 # Qt

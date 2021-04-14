@@ -35,7 +35,8 @@ add_definitions("-Wall -g")
 enable_testing()
 
 aux_source_directory(../../src/message MSG_FILES)
-add_executable(msg_test cmqmessage_test.cpp ${MSG_FILES})
+aux_source_directory(. TEST_FILES)
+add_executable(msg_test ${TEST_FILES} ${MSG_FILES})
 
 IF (WIN32)
     message(STATUS "libQt5Core.a loaded.....")
