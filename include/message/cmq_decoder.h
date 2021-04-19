@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-11 09:59:58
- * @LastEditTime: 2021-04-14 00:58:57
+ * @LastEditTime: 2021-04-17 05:57:11
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /CMQ/include/message/cmq_decoder.h
@@ -27,6 +27,10 @@ public:
 
     CmqMessage msgDecode(const CmqByteArray& packet) override;
 
+private:
+    static int lengthCompute(const CmqByteArray& packet, int& currentPosition, int lengthByteStartPosition = 1);
+    static bool hasIdentifier(MqttPacketType packetType, QOS qos);
+    
 };
 }
 #endif

@@ -1,7 +1,7 @@
 /*
  * @Author: zhuyuejiang
  * @Date: 2021-04-07 09:00:04
- * @LastEditTime: 2021-04-13 12:46:19
+ * @LastEditTime: 2021-04-14 16:40:31
  * @LastEditors: Please set LastEditors
  * @Description: 
  * 消息编码器，负责将CmqMessage编码（打包）为特定协议格式的报文，
@@ -9,7 +9,7 @@
  * @FilePath: /CMQ/src/message/cmq_encoder.cpp
  */
 #include "../../include/message/cmq_encoder.h"
-
+#include "../../include/message/cmq_message_global.h"
 
 namespace CMQ::Message{
 
@@ -25,12 +25,6 @@ namespace CMQ::Message{
  * -----------------------------------------------------    *
  * byte1...     有    效    载    荷(Playload)              *
  ************************************************************/
-
-//控制报文标志位，以下标志只出现在PUBLISH报文中，从MQTT3.1.1起被使用
-#define MQTT_CONTROL_PACKET_FLAG_DUP 0x08    //重复分发标志位
-#define MQTT_CONTROL_PACKET_FLAG_QOS_H 0x04  //PUBLISH报文服务质量标志高位
-#define MQTT_CONTROL_PACKET_FLAG_QOS_L 0x02  //PUBLISH报文服务质量标志低位
-#define MQTT_CONTROL_PACKET_FLAG_RETAIN 0x01 //PUBLISH报文的保留标志
 
 /************************************************************************************************************************
 * 剩余长度 = 可变报头字节数 + 有效载荷字节数， 剩余长度本身占据1到4个字节，采用变长度编码，具体计算方法如下：
@@ -84,7 +78,7 @@ CmqByteArray CmqMqttEncoder::msgEncode(const CmqMessage& msg)
     packet.push_back(fixHeader);
 
     //剩余长度
-    bool hasIden = CmqMqttEncoder::hasIndentifier(msg);
+    bool hasIden = CmqMqttEncoder::hasIdentifier(msg);
     short remainLength = msg.data().size() + (hasIden ? 2 : 0);
     auto bytes = CmqMqttEncoder::lengthEncode(remainLength);
     packet.insert(packet.end(), bytes.begin(), bytes.end());
@@ -123,7 +117,7 @@ CmqByteArray CmqMqttEncoder::msgEncode(const CmqMessage& msg)
  * @param {const} CmqMessage
  * @return {*}
  */
-bool CmqMqttEncoder::hasIndentifier(const CmqMessage& msg)
+bool CmqMqttEncoder::hasIdentifier(const CmqMessage& msg)
 {
     auto packetType = static_cast<short>(msg.packetType());
     auto pub = static_cast<short>(MqttPacketType::PUBLISH);
