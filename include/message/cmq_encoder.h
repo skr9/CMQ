@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 12:06:59
- * @LastEditTime: 2021-04-12 03:04:55
+ * @LastEditTime: 2021-04-20 12:44:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /CMQ/include/message/cmq_encoder.h
@@ -32,7 +32,7 @@ public:
 
 private:
     static CmqByteArray lengthEncode(int length);
-    static bool hasIndentifier(const CmqMessage& msg);
+    static bool hasIdentifier(const CmqMessage& msg);
     static bool hasPlayload(const CmqMessage& msg);
 };
 
@@ -43,28 +43,6 @@ public:
     ~CmqAmqpEncoder(){}
 
     CmqByteArray msgEncode(const CmqMessage& msg) override{return CmqByteArray();}  //目前未实现具体功能，无意义
-};
-
-/**
- * @description: 
- * 简单工厂方法工具类，用于辅助创建编码器
- * @param {*}
- * @return {*}
- */
-class CmqEncoderFactory{
-public:
-    static shared_ptr<CmqEncoder> createEncoder(Protocal protocal)
-    {
-        if(Protocal::MQTT == protocal){
-            return make_shared<CmqMqttEncoder>();
-        }
-        else if(Protocal::AMQP == protocal){
-            return make_shared<CmqAmqpEncoder>();
-        }
-        else{
-            throw std::bad_function_call();
-        }
-    }
 };
 }
 

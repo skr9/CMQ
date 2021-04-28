@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 11:54:32
- * @LastEditTime: 2021-04-11 07:56:05
+ * @LastEditTime: 2021-04-26 13:19:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /CMQ/include/message/cmq_message_imp.h
@@ -28,12 +28,6 @@ enum class Protocal{
     AMQP = 1
 };
 
-//消息发起方
-enum class MessageSource{
-    CLIENT = 0,  //由客户端发起，一般消息节点（除broker外）在CMQ种均为消息客户端
-    SERVER = 1  //特指broker
-};
-
 //MQTT报文类型
 enum class MqttPacketType{
     CONNECT = 1,      //客户端请求连接服务端
@@ -57,23 +51,19 @@ static const QString DEFAULT_KEY("CMQ_MSG");
 
 class CmqMessageImp{
 public:
-    Protocal _protocal;
-    QString _id;
-    QString _key;
-    QString _tag;
-    QString _topic;
-    qint64 _timeStamp;
-    QOS _qos;
-    MessageSource _source;
-    MqttPacketType _mpt;    //mqtt协议下有效
-    short _packetIdentifier; //mqtt报文标识符
-    bool _duplicated; //是否是重复发送的报文
+    Protocal protocal;
+    QString id;
+    QString key;
+    QString tag;
+    QString topic;
+    qint64 timeStamp;
+    QString source;
     vector<char> _data;
 
     CmqMessageImp() = delete;
-    CmqMessageImp(const QString& msgid, const QString& topic, short packetIdentifier, Protocal protocal, MqttPacketType mpt);
-    CmqMessageImp(const QString& msgid, const QString& topic, short packetIdentifier, const vector<char>& data, Protocal protocal, MqttPacketType mpt);
-    CmqMessageImp(const CmqMessageImp& imp);
+    CmqMessageImp(const QString& topic, Protocal protocal);
+    CmqMessageImp(const QString& topic, const vector<char>& data, Protocal protocal);
+    CmqMessageImp(const CmqMessageImp& imp) = default;
 
     void appendData(CmqByte byte)
     {
@@ -85,8 +75,128 @@ public:
         _data.insert(_data.end(), data.begin(), data.end());
     }
 
-    vector<char> serialize();
-    void deserialize(const vector<char>& data);
+    virtual vector<char> serialize();
+    virtual void deserialize(const vector<char>& data);
+};
+
+//连接标志位，出现在CONNECT报文中
+enum ConnectFlag{
+    CLEAN_START = 0X02,
+    WILL_FLAG = 0X04,
+    WILL_QOS_L = 0X08,
+    WILL_QOS_H = 0X10,
+    WILL_RETAIN = 0X20,
+    PASSWORD_FLAG = 0X40,
+    USER_NAME_FLAG = 0X80,
+};
+
+ /*CONNECT 报文特有的内容*/
+class ConnectPacketField{
+public:
+    explicit ConnectPacketField():version(0x05), connectFlag(0), requestResponseInfo(0),
+    requestProblemInfo(0), willDelayInterval(0), userPropertyData(""), willTopic(""),
+    willPlayload(),  userName(""), password("")
+    {
+
+    }
+    qint8 version; //协议版本号，默认5，表示最新版本MQTT5， 3.1.1版本的对应值为4
+    qint8 connectFlag; //连接标志位，包含：username flag, password flag, will retain, will QOS, will flag, clean start
+    qint8 requestResponseInfo; //告知server端是否可以发送响应信息
+    qint8 requestProblemInfo; 
+
+    /*CONNECT报文中有效载荷内容*/
+    int willDelayInterval; 
+    QString userPropertyData;
+    QString willTopic;
+    QString userName;
+    QString password;
+    CmqByteArray willPlayload;
+};
+
+//连接状态反馈码，出现在CONNACK报文中
+enum ConnectReasonCode{
+    SUCCESS = 0X00,
+    UNSPECIFIED_ERROR = 0X80,
+    MALFORMED_PACKET = 0X81,
+    PROTOCAL_ERROR = 0X82,
+    IMPLEMENTATION_SPECIFIC_ERROR = 0X83,
+    UNSUPPORTED_PROTOCAL_VERSION = 0X84,
+    CLIENT_IDENTIFIER_NOT_VALID = 0X85,
+    BAD_USER_NAME_OR_PASSWORD = 0X86,
+    NOT_AUTHORIZED = 0X87,
+    SERVER_UNAVAILABLE = 0X88,
+    SERVER_BUSY = 0X89,
+    BANNED = 0X8A,
+    BAD_AUTHENTICATION_METHOD = 0X8C,
+    TOPIC_NAME_INVAILD = 0X90,
+    PACKET_TOO_LARGE = 0X95,
+    QUOTA_EXCEEDED = 0X97,
+    PLAYLOAD_FORMATE_INVAILD = 0X99,
+    RETAIN_NOT_SUPPORTED = 0X9A,
+    QOS_NOT_SUPPORTED = 0X9B,
+    USE_ANOTHER_SERVER = 0X9C,
+    SERVER_MOVED = 0X9D,
+    CONNECTION_RATE_EXCEEDED = 0X9F,
+};
+
+
+/*CONNACK报文标志位和属性*/
+class ConnackPacketField{ 
+public:
+    qint8 sessionPresent; 
+    qint8 connectReasonCode;
+    qint8 retainAvailable;  
+    qint8 wildcardSubscriptionAvailable;
+    qint8 subscriptionIdentifiersAvailable;
+    qint8 sharedSubscriptionAvailable;
+    QString responseInfo;
+    QString serverReference;
+};
+
+//通用标志位或属性，出现在两个或多个报文中
+class CommonField{
+public:
+    qint8 maxQos;
+    qint8 playloadFormatIndicator;
+    qint8 reasonCode;
+    short receiveMaximum; //client可同时接收的QOS1和QOS2的消息数量
+    short topicAliasMaximum;
+    short messageExpiryInterval;
+    short keepLiveInterval; //保活时间，单位秒，超过保活时间未收到任何消息，视为连接断开
+    int sessionExpiryInterval; //会话过期时间，单位秒，连接断开后会话状态保持时间
+    int maximumPacketSize; //client可接受的最大包大小，单位字节
+    int subscriptionIdentifier;
+    CmqByteArray authenticationData;
+    CmqByteArray correlationData;
+    QString clientIdentifier; //client标识符（clientID）
+    QString authenticationMethod;
+    QString responseTopic; 
+    QString contentType;
+    QString reasonString;
+    QStringList userProperty;
+};
+
+//MQTT消息实现类
+class CmqMqttMessageImp: public CmqMessageImp{
+public:
+    CmqMqttMessageImp() = delete;
+    CmqMqttMessageImp(const QString& topic, short packetIdentifier, MqttPacketType mpt);
+    CmqMqttMessageImp(const QString& topic, short packetIdentifier, const CmqByteArray& data, MqttPacketType mpt);
+    CmqMqttMessageImp(const CmqMqttMessageImp& imp) = default;
+    
+    QOS qos;
+    MqttPacketType mpt;    
+    bool duplicated; //是否是重复发送的报文
+    bool retain;
+    short packetIdentifier; //mqtt报文标识符
+    short topicAlias;
+
+    ConnectPacketField connectField;
+    ConnackPacketField connackField;
+    CommonField commonField;
+
+    //SUBSCRIBE报文标志位和属性
+    qint8 subscriptionOptions;
 };
 }
 
