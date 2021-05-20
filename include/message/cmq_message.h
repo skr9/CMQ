@@ -1,7 +1,7 @@
 /*
  * @Author: ZHUYUEJIANG
  * @Date: 2021-03-29 14:26:48
- * @LastEditTime: 2021-04-27 00:34:19
+ * @LastEditTime: 2021-05-01 11:21:47
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \CMQ\message\cmq_message.hpp
@@ -110,7 +110,7 @@ public:
     inline short topicAlias()const{return _imp_ptr->topicAlias;}
     void setTopicAlias(short alias){_imp_ptr->topicAlias = alias;}
 
-    const ConnectPacketField* connectField()const{return &(_imp_ptr->connectField);}
+    const ConnectPacketField* connectField()const {return &(_imp_ptr->connectField);}
     void setConnectPacketFiled(const ConnectPacketField& cpf){_imp_ptr->connectField = cpf;}
 
     const ConnackPacketField* connackField()const{return &(_imp_ptr->connackField);}

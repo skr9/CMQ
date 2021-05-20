@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-04-07 11:54:32
- * @LastEditTime: 2021-04-26 13:19:15
+ * @LastEditTime: 2021-05-13 14:09:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /CMQ/include/message/cmq_message_imp.h
@@ -97,7 +97,6 @@ public:
     requestProblemInfo(0), willDelayInterval(0), userPropertyData(""), willTopic(""),
     willPlayload(),  userName(""), password("")
     {
-
     }
     qint8 version; //协议版本号，默认5，表示最新版本MQTT5， 3.1.1版本的对应值为4
     qint8 connectFlag; //连接标志位，包含：username flag, password flag, will retain, will QOS, will flag, clean start
@@ -111,6 +110,54 @@ public:
     QString userName;
     QString password;
     CmqByteArray willPlayload;
+
+    inline static int USER_NAME_FLAG = 0b1000'0000;
+    inline static int PASSWORD_FLAG = 0b0100'0000;
+    inline static int WILL_FLAG = 0b0000'0100;
+    inline static int WILL_RETAIN_FLAG = 0b0010'0000;
+    inline static int CLEAN_START_FLAG = 0b0000'0010;
+
+    bool hasUserName()const{return connectFlag & USER_NAME_FLAG;}
+    void setUserNameFlag(bool flag = true)
+    {
+        connectFlag = flag ? (connectFlag | USER_NAME_FLAG) : (connectFlag & (~USER_NAME_FLAG));
+    }
+
+    bool hasPassword()const{return connectFlag & PASSWORD_FLAG;}
+    void setPasswordFlag(bool flag = true)
+    {
+        connectFlag = flag ? (connectFlag | PASSWORD_FLAG) : (connectFlag & (~PASSWORD_FLAG));
+    }
+
+    bool hasWillMessage()const{return connectFlag & WILL_FLAG;}
+    qint8 willQos()const{return connectFlag & 0b0001'1000;}
+    bool retainWill()const{return connectFlag & WILL_RETAIN_FLAG;}
+    void setWill(bool willFlag, qint8 willQos, bool retainWill = true)
+    {
+        if(willFlag){
+            connectFlag = connectFlag | WILL_FLAG;
+            if(willQos == 1){
+                connectFlag &= 0b1110'1111;
+            }
+            else if(willQos == 2){
+                connectFlag &= 0b1111'1111;
+            }
+            else{
+                connectFlag &= 0b1110'0111;
+            }
+            connectFlag = retainWill ? (connectFlag | WILL_RETAIN_FLAG) : (connectFlag & (~WILL_RETAIN_FLAG)); 
+        }
+        else{
+            connectFlag &= 0b1100'0011;
+        }
+    }
+
+    bool cleanStart()const{return connectFlag & CLEAN_START_FLAG;}
+    void setCleanStart(bool flag = true)
+    {
+        connectFlag = flag ? (connectFlag | CLEAN_START_FLAG) : (connectFlag & (~CLEAN_START_FLAG));
+    }
+
 };
 
 //连接状态反馈码，出现在CONNACK报文中
@@ -149,6 +196,8 @@ public:
     qint8 wildcardSubscriptionAvailable;
     qint8 subscriptionIdentifiersAvailable;
     qint8 sharedSubscriptionAvailable;
+    short serverKeepAlive;
+    QString assignedClientIdentifier;
     QString responseInfo;
     QString serverReference;
 };
